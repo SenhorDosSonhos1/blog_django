@@ -1,0 +1,59 @@
+{% extends 'base.html' %} 
+
+{% block title %}{{ post.titulo }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <article class="p-4 bg-white rounded shadow-sm">
+                <h1 class="mb-3">{{ post.titulo }}</h1>
+                
+                <p class="text-muted small">
+                    Por <a href="#">{{ post.autor.username|default:"Autor Desconhecido" }}</a> em {{ post.data_publicacao|date:"d/m/Y" }}
+                </p>
+                
+                <hr>
+                
+                {% if post.imagem %}
+                <figure class="figure mb-4">
+                    <img src="{{ post.imagem.url }}" class="figure-img img-fluid rounded" alt="Imagem do Post" style="max-height: 500px; width: 100%; object-fit: cover;">
+                    <figcaption class="figure-caption text-center">{{ post.titulo }}</figcaption>
+                </figure>
+                {% endif %}
+
+                <div class="lead">
+                    <p>{{ post.conteudo|safe }}</p>
+                </div>
+            </article>
+
+            <div class="mt-5 mb-5 p-4 bg-light rounded shadow-sm">
+                <h3 class="mb-4">Comentários ({{ comentarios|length }})</h3>
+
+                {% if comentarios %}
+                    <ul class="list-unstyled">
+                        {% for comentario in comentarios %}
+                        <li class4 pb-3 border-bottom">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1 text-primary">{{ comentario.autor.username|default:"Anônimo" }}</h6>
+                                    <small class="text-muted">{{ comentario.data_publicacao|date:"d/m/Y, H:i" }}</small>
+                                    <p class="mt-2">{{ comentario.conteudo }}</p>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-muted">Nenhum comentário ainda. Seja o primeiro a comentar!</p>
+                {% endif %}
+            </div>
+
+            
+
+
+            
+        </div>
+    </div>
+</div>
+{% endblock %}="mb-
