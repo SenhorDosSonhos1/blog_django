@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Criar Post{% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="p-4 bg-white rounded shadow-sm">
+                    <h1 class="mb-4 text-center">Criar Novo Post</h1>
+                    
+                    <form method="post" action="{% url 'criar_post' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_titulo" class="form-label">Título</label>
+                            <input type="text" class="form-control" id="id_titulo" name="titulo" required placeholder="Insira o título do post">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="id_descricao" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="id_descricao" name="descricao" rows="8" required placeholder="Escreva o conteúdo completo do seu post..."></textarea>
+                        </div>
+                        
+   
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success btn-lg mt-3">Publicar Post</button>
+                        </div>
+                    </form>
+                    </div>
+                
+                <div class="text-center mt-3">
+                    <a href="/url-para-home/" class="btn btn-link">Cancelar e Voltar para Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

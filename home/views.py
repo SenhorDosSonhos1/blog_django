@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
+from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your views here.
 def listar_posts(request):
@@ -15,7 +17,21 @@ def detalhar_post(request, pk):
      })
 
 def criar_post(request):
-     ...
+     if request.method == "POST":
+          titulo = request.POST.get("titulo")
+          descricao = request.POST.get("descricao")
+
+          #Adicionar o autor como o id do usuario logado
+          post = Post.objects.create(
+          titulo = titulo,
+          descricao = descricao)
+          
+          post.save()
+     
+     return redirect(reverse("home"))
+          
+          
+     return render(request, 'criar_post.html')
 
 def editar_post(request):
      ...
