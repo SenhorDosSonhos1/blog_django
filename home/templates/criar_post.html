@@ -3,11 +3,6 @@
 
 {% block content %}
 
- {% if user.is_authenticated %}
-        Olá, {{ user.username }}! <a href="/logout/">Sair</a>
-    {% else %}
-        <a href="/login/">Entrar</a>
-    {% endif %}
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-6">

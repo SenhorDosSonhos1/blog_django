@@ -14,7 +14,7 @@ def usuario_login(request):
         usuario = authenticate(username = nome_usuario, password = senha)
 
         if usuario is not None:
-            login(usuario)
+            login(request, usuario)
             return redirect(reverse('home'))
         
         return HttpResponse('Usuario não existe')

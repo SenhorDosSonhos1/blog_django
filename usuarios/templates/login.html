@@ -11,7 +11,8 @@
                     <div class="card-body">
                         <h2 class="card-title text-center mb-4">Acesse sua Conta</h2>
                         
-                        <form method="post" action="/url-de-login/"> 
+                        <form method="POST" action="{% url "login" %}"> 
+                            {% csrf_token %}
                             <div class="mb-3">
                                 <label for="id_username" class="form-label">Nome de Usuário ou E-mail</label>
                                 <input type="text" 

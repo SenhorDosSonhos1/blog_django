@@ -17,7 +17,7 @@ def detalhar_post(request, pk):
           "post": post
      })
 
-#@login_required
+@login_required
 def criar_post(request):
      if request.method == "POST":
           titulo = request.POST.get("titulo")
