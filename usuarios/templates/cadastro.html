@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-5">
+                <div class="card shadow-lg p-4">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Crie sua Conta no Blog</h2>
+                        
+                        <form method="POST" action="{% url "cadastro" %}"> 
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="id_username" class="form-label">Nome de Usuário</label>
+                                <input type="text" 
+                                    class="form-control" 
+                                    id="id_username" 
+                                    name="username" 
+                                    placeholder="Escolha um nome de usuário" 
+                                    required 
+                                    aria-describedby="usernameHelp">
+                                <div id="usernameHelp" class="form-text">Será usado para exibir o autor dos seus posts.</div>
+                                </div>
+
+                            <div class="mb-3">
+                                <label for="id_email" class="form-label">E-mail</label>
+                                <input type="email" 
+                                    class="form-control" 
+                                    id="id_email" 
+                                    name="email" 
+                                    placeholder="seu.email@exemplo.com" 
+                                    required>
+                                </div>
+
+                            <div class="mb-3">
+                                <label for="id_password1" class="form-label">Senha</label>
+                                <input type="password" 
+                                    class="form-control" 
+                                    id="id_password1" 
+                                    name="password" 
+                                    placeholder="Sua senha" 
+                                    required 
+                                    aria-describedby="passwordHelpBlock">
+                                <div id="passwordHelpBlock" class="form-text">
+                                    Sua senha deve ter pelo menos 8 caracteres.
+                                </div>
+                                </div>
+
+                            <div class="mb-4">
+                                <label for="id_password2" class="form-label">Confirme a Senha</label>
+                                <input type="password" 
+                                    class="form-control" 
+                                    id="id_password2" 
+                                    name="password2" 
+                                    placeholder="Repita sua senha" 
+                                    required>
+                                </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    Registrar
+                                </button>
+                            </div>
+                        </form>
+                        <hr class="my-4">
+                        
+                        <div class="text-center">
+                            <p>Já tem conta? 
+                                <a href="/url-de-login/">Faça Login</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

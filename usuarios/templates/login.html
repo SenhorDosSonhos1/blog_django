@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+
+{% block title %} Cadastro {% endblock title %}
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-lg p-4">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Acesse sua Conta</h2>
+                        
+                        <form method="post" action="/url-de-login/"> 
+                            <div class="mb-3">
+                                <label for="id_username" class="form-label">Nome de Usuário ou E-mail</label>
+                                <input type="text" 
+                                    class="form-control" 
+                                    id="id_username" 
+                                    name="username" 
+                                    placeholder="Seu nome de usuário ou e-mail" 
+                                    required>
+                                </div>
+
+                            <div class="mb-3">
+                                <label for="id_password" class="form-label">Senha</label>
+                                <input type="password" 
+                                    class="form-control" 
+                                    id="id_password" 
+                                    name="password" 
+                                    placeholder="Sua senha" 
+                                    required>
+                                </div>
+
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Lembrar-me</label>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    Entrar
+                                </button>
+                            </div>
+                        </form>
+                        <hr class="my-4">
+                        
+                        <div class="text-center small">
+                            <p class="mb-2">
+                                <a href="/url-de-reset-senha/">Esqueceu sua senha?</a>
+                            </p>
+                            
+                            <p>Não tem conta? 
+                                <a href="{% url "cadastro" %}">Crie uma agora!</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
