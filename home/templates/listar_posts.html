@@ -5,6 +5,14 @@
 {% block content %}
 <div class="container mt-5">
     <h1 class="mb-4 text-center">Últimos Posts</h1>
+
+    <div class="row mb-4">
+        <div class="col text-end">
+            <a href="{% url 'criar_post' %}" class="btn btn-success btn-lg shadow-sm">
+                + Novo Post
+            </a>
+        </div>
+    </div>
     
     {% if posts %}
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
