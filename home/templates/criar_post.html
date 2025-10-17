@@ -2,6 +2,12 @@
 {% block title %}Criar Post{% endblock title %}
 
 {% block content %}
+
+ {% if user.is_authenticated %}
+        Olá, {{ user.username }}! <a href="/logout/">Sair</a>
+    {% else %}
+        <a href="/login/">Entrar</a>
+    {% endif %}
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -16,8 +22,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="id_descricao" class="form-label">Descrição</label>
-                            <textarea class="form-control" id="id_descricao" name="descricao" rows="8" required placeholder="Escreva o conteúdo completo do seu post..."></textarea>
+                            <label for="id_conteudo" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="id_conteudo" name="conteudo" rows="8" required placeholder="Escreva o conteúdo completo do seu post..."></textarea>
                         </div>
                         
    
